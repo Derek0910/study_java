@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[속성 = 값] 선택자</title>
+<style>
+	/* [속성 = 값] 선택자
+       태그[속성 = 값]{속성: 속성값; ......} 
+	*/	
+	a[target="_blank"] {
+		padding-right:30px;
+		background:url(../../images/css3/12장/ch.png) no-repeat center right;
+	}
+	
+	[class~="button"]{
+		border:2px solid black;
+		box-shadow:rgba(0,0,0,0.4) 5px 5px;
+	}
+	
+	a[title|="us"]{
+		background:url(../../images/css3/12장/us.png) no-repeat left center;
+		padding: 5px 25px;
+	}
+	
+	a[title|="jap"]{
+		background:url(../../images/css3/12장/jp.png) no-repeat left center;
+		padding: 5px 25px;
+	}
+	
+</style>
+</head>
+<body>
+	<h3> [속성 = 값] 선택자</h3>
+	<!--  [속성 = 값] 선택자 - 그룹선택자 - 해당 그룹 요소에 스타일 지정하기 -->
+	<ul>
+		<li>
+			<a href="http://www.w3c.orf/TR/html" target="_blank">HTML</a>
+		</li>
+	</ul>
+	
+	<h3> [속성 ~= 값] 선택자</h3>
+	<ul>
+		<li>
+			<a href="#">메뉴1</a>
+		</li>
+		<li>
+			<a href="#">메뉴2</a>
+		</li>
+		<li>
+			<a href="#" class="button">메뉴3</a>
+		</li>
+		<li>
+			<a href="#" class="flat button">메뉴4</a>
+		</li>
+	</ul>	
+	
+	<h3> [속성 |= 값] 선택자</h3>
+	<ul>
+		<li>
+			<a href="#" title="us">영어</a>
+			<a href="#" title="us-english">영어</a>
+			<a href="#" title="japanese">일본어</a>
+			<a href="#" title="jap">일본어</a>
+			<a href="#" title="jap-">일본어</a>
+		</li>
+	</ul>
+
+</body>
+</html>

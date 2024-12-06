@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+		fieldset{
+		max-width: 600px;
+		margin : 15px 10px;
+	}
+	
+	legend{
+		font-size:15px;
+		font-weight:bold;
+		color:white;
+		border: 5px solid blue;
+		background-color:red;
+	}
+	
+	label {
+		font-size:14px;
+		font-weight:bold;
+		width:120px;		
+	}
+	
+	/*table, th{
+		border : 1px solid darkred;
+		border-collapse:collapse;
+	}*/
+	
+	th, td{padding : 10px;}
+	
+	textarea{
+		  resize: none;
+	}
+	input{
+		outline:none;
+	}
+</style>
+</head>
+<body>
+	<h3> select box - 여러 데티터를 나열행서 보여주기</h3>
+	
+	<form action="#" method="post">
+		<legend> 수강신청 </legend>
+		<table>
+			<tr>
+				<td>
+					<label for="stdNum">학번</label>
+				</td>
+				<td>
+					<input type="text" id="stdNum" min="0" max="100" value="1" autofocus required />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="stdName">이름</label>
+				</td>
+				<td>
+					<!-- <input type="text" id="stdName" min="0" max="100" value="이름" required />-->
+					<input type="text" id="stdName" min="0" max="100" value="이름" autofocus required />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="major">전공</label>
+				</td>
+				<td>
+					<select size="5" id="major" multiple>
+						<optgroup label="공과대학">
+							<option value="computer">컴퓨터공학</option>
+							<option value="multi">멀티미디어공학</option>
+							<option value="electro">전자공학</option>
+							<option value="chemistry">화학공공학</option>
+							<option value="mecha">기계공학</option>
+							<option value="materials">기계공학</option>
+						</optgroup>
+						
+						<optgroup label="인문대학">
+							<option value="kor">국문과</option>
+							<option value="eng">영문과</option>
+							<option value="china">중국어학과</option>
+							<option value="phil">철학과</option>
+							<option value="jpn">일본어학과</option>
+							<option value="fra">프랑스어학과</option>
+						</optgroup>
+					</select>
+				</td>
+			</tr>
+		</table>
+	
+	</form>
+</body>
+</html>

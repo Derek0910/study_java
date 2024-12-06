@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+		fieldset{
+		max-width: 600px;
+		margin : 15px 10px;
+	}
+	
+	legend{
+		font-size:15px;
+		font-weight:bold;
+		color:white;
+		border: 5px solid blue;
+		background-color:red;
+	}
+	
+	label {
+		font-size:14px;
+		font-weight:bold;
+		width:120px;		
+	}
+	
+	/*table, th{
+		border : 1px solid darkred;
+		border-collapse:collapse;
+	}*/
+	
+	th, td{padding : 10px;}
+	
+	textarea{
+		  resize: none;
+	}
+	input{
+		outline:none;
+	}
+	tbl_progress.tr{
+		width: 600px;
+	}
+	
+	tbl_progress.tr th:first-child{
+		width: 100px;
+	}
+</style>
+</head>
+<body>
+	<h3> 폼과 관련된 태그들</h3>
+	
+	<form action="#" method="">
+		<fieldset>
+			<legend> 지원현황 </legend>
+			<table>
+				<tr>
+					<td>
+						<label for="mem_number"> 참여인원<small>(최대10명)</small></label>
+					</td>	
+					<td>
+						<input type="number" id="mem_number" value="1" min="0" max="10" step="1" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="sup_number"> 지원물품<small>(1인당 5개)</small></label>
+					</td>	
+					<td>
+						<input type="number" id="sup_number" value="5" min="0" max="25" step="5" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="sup_number"> 희망단계<small>(상,중,하)</small></label>
+					</td>	
+					<td>
+						<input type="range" id="sup_number" value="1" min="1" max="3" step="1" />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<fieldset>
+			<legend> progress 태그 - 진행상태 보여주기</legend>
+			<table class="tbl_progress">
+				<tr>
+					<!-- 전체 60초 중에서 50초 진행 -->
+					<td width="25%">
+						<label> 10초 남음 </label>
+					</td>
+					<td width="75%">
+						<progress value="50" max="60"></progress>
+					</td>
+				</tr>
+				
+				<tr>
+					<!-- 전체 100% 중에서 20% 진행 -->
+					<td width="25%">
+						<label> 진행률 20% </label>
+					</td>
+					<td width="75%">
+						<progress value="20" max="100"></progress>
+					</td>
+				</tr>
+				
+				<tr>
+					<!-- 전체 1 중에서 0.7 진행 -->
+					<!-- meter : 전체 크기 중에서 얼마나 차지하는지를 표시할 때 사용
+						 예) 유권자 투표율
+					 -->
+					<td width="25%">
+						<label> 점유율 0.7 </label>
+					</td>
+					<td width="75%">
+						<meter value="7" max="10"></meter>
+					</td>
+				</tr>
+				
+				<tr>
+					<!-- 전체크기(min~max)는 1024~10240이며,
+						 value가 high를 벗어나면 노랑,
+					 	 high 이내이면 green 
+					 -->
+					<td width="25%">
+						<label> 트래픽 초과 </label>
+					</td>
+					<td width="25%">
+						<meter value="20" min="0" max="100" high="80" low="25"></meter>
+					</td>
+					<td width="25%">
+						<meter value="50" min="0" max="100" high="80" low="25"></meter>
+					</td>
+					<td width="25%">
+						<meter value="85" min="0" max="100" high="80" low="25"></meter>
+					</td>
+				</tr>
+				
+				<tr>
+					<!-- 전체크기 1중에서  -->
+					<td>
+						<label> 점유율 0.7 </label>
+					</td>
+					<td>
+						<meter optimum="" value="7" max="10"></meter>
+					</td>
+				</tr>
+				
+			</table>
+		</fieldset>
+	</form>
+
+</body>
+</html>

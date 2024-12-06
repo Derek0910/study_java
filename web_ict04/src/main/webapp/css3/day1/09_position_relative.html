@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.outline{
+		width:auto;
+		margin : 0 auto;
+	}
+	
+	h4{
+		text-align:center;
+	}
+	
+	.box0{
+		float : left;
+		width: 100px;
+		background-color : #0094ff;
+		margin-right: 10px;
+		padding : 20px;
+	}
+	
+	.box1{
+		float : left;
+		width: 300px;
+		background-color : #f00;
+		margin-right: 10px;
+		padding : 20px;
+	}
+	
+	.box2{
+		position: relative;
+		float : left;
+		left: -50px;
+		top: 30px;
+		background-color: lightgreen;
+		padding : 20px;
+	}
+</style>
+</head>
+<body>
+	<h3>position - relative 속성</h3>
+	
+	<!--
+		static 속성
+	 	. 문서의 흐름대로 배치한다.
+	 	. left 나 top 속성을 지정할 수 없다.
+	 -->
+	<div class="outline">
+		<h4 class="small_title">relative 속성</h4>
+		<ul>
+			<li>자연스럽게 배치</li>
+			<li>고정되어 있지 않고, 다른 요소에 의해 바뀔 수 있다.</li>
+			<li>상대적인 위치를 사용하기 때문에 다른 요소와 조화를 이룬다.</li>
+			<li>left 나 top 속성을 이용해 요소의 위치를 옮길수도 있다.</li>
+		</ul>
+
+		<div class="box0"> 박스 0 </div>
+		<div class="box1"> 박스 1 </div>
+		<div class="box2"> 박스 2 </div>
+	</div>	 
+</body>
+</html>

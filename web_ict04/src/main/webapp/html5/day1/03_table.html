@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테이블 만들기(중요)</title>
+</head>
+<body>
+<!-- 
+	<table> ~ </table> : 표전체, 테두리 border = 1
+	<tr> ~ </tr> : 행
+	<td> ~ </td> : 열
+	<th> ~ </th> : 제목셀
+ -->
+<h3>테이블 만들기 - 3행 4열</h3>
+
+<table style="border:3px; border-color:red">
+	<tr style="background:pink; height:30px">
+		<th style="padding: 20px" rowspan="2">행1 제목</th>
+		<td style="padding: 20px">행1 내용1</td>
+		<td style="padding: 20px">행1 내용2</td>
+		<td style="padding: 20px">행1 내용3</td>
+	</tr>
+	
+	<tr style="background:lightblue; height:30px; margin: 20px">
+		<!-- <th style="padding: 20px">행2 제목</th>  -->
+		<td style="padding: 20px">행2 내용1</td>
+		<td style="padding: 20px">행2 내용2</td>
+		<td style="padding: 20px">행2 내용3</td>
+	</tr>
+	
+	<tr style="background:lightgreen; height:30px; margin: 20px">
+		<th style="padding: 20px">행3 제목</th>
+		<td style="padding: 20px">행3 내용1</td>
+		<td style="padding: 20px; text-align:center" colspan="2">행3 내용2</td>
+		<!-- <td style="padding: 20px">행3 내용3</td> -->
+	</tr>
+</table>
+
+
+
+</body>
+</html>
