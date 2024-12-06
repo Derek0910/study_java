@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	fieldset{
+		max-width: 400px;
+		margin : 15px 10px;
+	}
+	
+	legend{
+		font-size:50px;
+		font-weight:bold;
+		color:white;
+		border: 5px solid blue;
+		background-color:red;
+	}
+	
+	label {
+		font-size:14px;
+		font-weight:bold;
+		width:120px;		
+	}
+	
+	table, th, td{
+		border : 1px solid darkred;
+		border-collapse:collapse;
+	}
+	
+	th, td{padding : 10px;}
+	
+	
+</style>
+</head>
+<body>
+<!-- 
+   <fieldset> : 폼 요소들을 그룹으로 묶음
+   <legend> : 그룹의 제목
+   placeholder : 힌트 표시하기
+   autofocus : 폼이 실행하자마자 원하는 항목의 입력박스에 커서 표시하기
+   required : 필수항목 지정하기
+   
+   <form action="이동할 페이지">  =>   이동할 페이지가 없으면 404에러(FILE NOT FOUND 에러)
+ -->
+ 
+	<h3> 로그인 정보 </h3>
+	<form action="./08_login_next.html" method="post">
+		<fieldset>
+			<legend> 로그인 정보 </legend>
+			
+			<table>
+				<tr>
+					<th align="right"><label for="label_id" >아이디</label></th>
+					<td>
+						<input id="label_id" type="text" name="userID" size="30" placeholder="공백없이 아이디 입력" autofocus required/>
+					</td>
+				</tr>
+				<tr>
+					<th align="right"><label for="label_password" >비밀번호</label></th>
+					<td>
+						<input id="label_password" type="password" name="userPassword" size="30" placeholder="영문 포함 숫자 10자이상" autofocus required />
+					</td>
+				</tr>
+				<tr>
+					<th align="right"><label for="label_re_password" >비밀번호 확인</label></th>
+					<td>
+						<input id="label_re_password" type="password" name="re_userPassword" size="30" placeholder="비밀번호 확인" autofocus required/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<div align=center valign=middle>
+							<br>
+							<input type="submit" value="전송">
+							<input type="reset" value="취소">
+							<br>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>[속성 ^= 값] 선택자</title>
+<style>
+	/* [속성 ^= 값] 선택자
+       태그[속성 ^= 값]{속성: 속성값; ......} 
+	*/	
+	
+	ul:nth-child(2)>li:nth-child(n+1){
+		width:max-content;
+		margin-right:20px;
+		display:inline-block;
+	}
+	
+	ul:nth-child(2)>li:nth-child(2){
+		margin-left:20px
+	}
+	
+	a[title^="eng"]{
+		background:url(../../images/css3/12장/us.png) no-repeat left center;
+		padding: 5px 25px;
+	}
+	
+	a[title^="jap"]{
+		background:url(../../images/css3/12장/jp.png) no-repeat left center;
+		padding: 5px 25px;
+	}
+	
+	a[title^="chin"] {
+		background:url(../../images/css3/12장/ch.png) no-repeat left center;
+		padding: 5px 25px;
+	}
+	
+	a[href $="hwp"]{
+		background:url(../../images/css3/12장/hwp_icon.gif) no-repeat center right;
+		padding-right:25px;
+	}
+	
+	a[href $="xls"]{
+		background:url(../../images/css3/12장/excel_icon.gif) no-repeat center right;
+		padding-right:25px;
+	}
+	
+	a[href *= "w3"]{
+		background : blue;
+		color:white;
+	}
+</style>
+</head>
+<body>
+	<h3> [속성 ^= 값] 선택자</h3>
+	<ul>
+		<li>외국어 서비스 : </li>
+		<li>
+			<a href="#" title="english">영어</a>
+		</li>
+		<li>
+			<a href="#" title="japanese">일본어</a>
+		</li>
+		<li>
+			<a href="#" title="chinese">중국어</a>
+		</li>
+	</ul>
+	
+	<h3> [속성 $= 값] 선택자</h3>
+	<ul>
+		<li>
+			<a href="intro.hwp">한글 파일</a>
+		</li>
+		<li>
+			<a href="intro.xls">엑셀 파일</a>
+		</li>
+	</ul>
+	
+	<h3> [속성 *= 값] 선택자</h3>
+	<ul>
+		<li>
+			<a href="http://www.w3c.orf/TR/html">HTML</a>
+		</li>
+		<li>
+			<a href="http://www.naver.com">네이버</a>
+		</li>
+		<li>
+			<a href="https://www.w3schools.com/html/">W3schools</a>
+		</li>
+	</ul>
+
+</body>
+</html>

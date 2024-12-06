@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		margin-bottom:50px;
+	}
+	th, td {
+		padding:10px;
+		color:#996600;
+	}
+	thead, tbody, tfoot{
+		background-color:linen;
+	}
+
+</style>
+</head>
+<body>
+	<h3>요안도라 객실</h3>
+   <!-- 
+      <thead> ~ </thead> : 제목 셀 그룹
+      <tbody> ~ </tbody> : 본문 셀그룹
+      <tfoot> ~ </tfoot> : 요약 셀 그룹
+      
+      정렬 - 가로
+         <td align="left" | "right" | "center">
+      정렬 - 세로
+         <td valign="top" | "middle" | "bottom">
+    -->
+    
+    <table class="tbl01" border="1" width="600">
+    	<!-- 제목 셀 그룹 -->
+    	<caption>
+    		<b>요안도라 객실</b>
+    	</caption>
+	    <thead style="background-color:#d1d1d1">
+	      	<th>방 이름</td>
+	    	<th>대상</td>
+	    	<th>크기</td>
+	    	<th>가격</td>
+	    </thead>
+	    <tr>
+	    	<td>유채방</td>
+	    	<td>여성 도미토리</td>
+	    	<td rowspan="3">4인실</td>
+	    	<td rowspan="4">1인 20,000원</td>
+	    </tr>
+	    <tr>
+	    	<td rowspan="2">동백방</td>
+	    	<td>동성 도미토리</td>
+	    </tr>
+	    <tr>
+	    	<td>가족1팀</td>
+	    </tr>
+<!-- 	    <tr> -->
+	    	<td>천혜향방</td>
+	    	<td>-</td>
+	    	<td>2인실</td>
+	    </tr>
+	    <tfoot style="background-color:#d1d1d1">
+		    <tr>
+		     <th colspan=4, align=center>바깥채 전체를 렌트합니다.</th>
+		    </tr>
+	    </tfoot>
+    </table>
+    
+    
+    <table border="1" width="600">
+	   	<!-- 제목 셀 그룹 -->
+	  
+	   	
+	    <thead style="background-color:#d1d1d1">
+	      	<th>방 이름</td>
+	    	<th>대상</td>
+	    	<th>크기</td>
+	    	<th>가격</td>
+	    </thead>
+	    <colgroup>
+	    	<col>
+   			<col style="background-color:red">
+   			<col style="background-color:blue">
+   			<col span="4" style="background-color:green">
+	    </colgroup>
+	    <tr>
+	    	<td>유채방</td>
+	    	<td>여성 도미토리</td>
+	    	<!-- <td style="background-color:#ceffe8">여성 도미토리</td> -->
+	    	<td rowspan="3" style="background-color:#fff0f2">4인실</td>
+	    	<td rowspan="4">1인 20,000원</td>
+	    </tr>
+	    <tr>
+	    	<td rowspan="2">동백방</td>
+	    	<td>동성 도미토리</td>
+	    	<td style="background-color:#ceffe8">동성 도미토리</td>
+	    </tr>
+	    <tr>
+	    	<td text-align:center">가족1팀</td>
+	    </tr>
+		<!-- 	    <tr> -->
+	    	<td>천혜향방</td>
+	    	<td>-</td>
+	    	<td style="color:white">2인실</td>
+	    </tr>
+	    <tfoot style="background-color:#d1d1d1">
+		    <tr>
+		     <th colspan=4, align=center>바깥채 전체를 렌트합니다.</th>
+		    </tr>
+	    </tfoot>
+   </table>
+   
+<table>
+  <colgroup>
+    <col span="2" style="background-color:red">
+    <col style="background-color:yellow">
+  </colgroup>
+  <tr>
+    <th>ISBN</th>
+    <th>Title</th>
+    <th>Price</th>
+  </tr>
+  <tr>
+    <td>3476896</td>
+    <td>My first HTML</td>
+    <td>$53</td>
+  </tr>
+  <tr>
+    <td>5869207</td>
+    <td>My first CSS</td>
+    <td>$49</td>
+  </tr>
+</table>
+    
+
+</body>
+</html>

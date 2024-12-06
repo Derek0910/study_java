@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+		fieldset{
+		max-width: 600px;
+		margin : 15px 10px;
+	}
+	
+	legend{
+		font-size:15px;
+		font-weight:bold;
+		color:white;
+		border: 5px solid blue;
+		background-color:red;
+	}
+	
+	label {
+		font-size:14px;
+		font-weight:bold;
+		width:120px;		
+	}
+	
+	/*table, th{
+		border : 1px solid darkred;
+		border-collapse:collapse;
+	}*/
+	
+	th, td{padding : 10px;}
+	
+	textarea{
+		  resize: none;
+	}
+	input{
+		outline:none;
+	}
+</style>
+<script type="text/javascript">
+
+	function zipcodeSearch(){
+		alert("우편번호를 입력하세요!");
+	}
+	
+</script>
+</head>
+<body>
+	<h3>폼과 관련된 태그들</h3>
+	
+	<form action="#" method="post">
+		<fieldset>
+			<legend>검색</legend>
+			<table>
+				<tr>
+					<td>
+						<input type="search" />
+					</td>
+					<td>
+						<input type="submit" value="검색" />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		
+		<fieldset>
+			<legend> 우편번호 검색 </legend>
+			<table>
+				<tr>
+					<td colspan="2">
+						<input type="button" value="우편번호 검색" onclick="zipcodeSearch()"/>
+					</td>
+				</tr>			
+			
+			</table>		
+		</fieldset>
+			<fieldset>
+			<legend> 파일 첨부하기 </legend>
+			<table>
+				<tr>
+					<!-- <td>
+						<label for="attachFile"></label>
+					</td>  -->
+					<td>
+						<input id="attachFile" type="file" />
+					</td>
+				</tr>			
+			
+			</table>		
+		</fieldset>
+		
+		<fieldset>
+			<legend>조회기간 선택</legend>
+			<table>
+				<tr>
+					<th><label for="nowmonth">현재월</label></th>
+					<td>
+						<input id="nowmonth" type="month" value="2024-12" />
+					</td>
+				</tr>
+				<tr>
+					<th>시작일</th>
+					<td>
+						<input type="date" value="2024-12-04" />
+					</td>
+					<td>~</td>
+					<th>종료일</th>
+					<td>
+						<input type="date" /><br>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="startWeek">개강주</label></th>
+					<td>
+						<input type="week" id="startWeek"/>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="startTime">시작시간</label></th>
+					<td>
+						<input type="time" id="startTime"/>
+					</td>
+					
+					<th><label for="endTime">마간시간</label></th>
+					<td>
+						<input type="time" id="endTime"/>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		
+		
+	</form>
+</body>
+</html>

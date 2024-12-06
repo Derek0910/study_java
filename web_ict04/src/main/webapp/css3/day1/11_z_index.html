@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>z-index</title>
+<style>
+	.outline{
+		width:auto;
+		margin : 0 auto;
+	}
+	
+	h4{
+		text-align:center;
+	}
+	
+	#wrap{
+		position: relative;
+		width: 300px;
+		height: 300px;
+		border : 5px solid #000;
+	}
+	
+	/* 자식(위치를 지정할 작은 상자) */
+	.box{
+		position : absolute;
+		width : 100px;
+		height : 100px;
+		background-color: #009444;
+		text-align : center;
+		line-height:100px;
+		color:white;
+	}
+	
+	#box1{
+		z-index : 1;
+		top: 40px;
+		left: 50px;
+		background-color: orange;
+	}
+	#box2{
+		z-index : 2;
+		top: 20px;
+		left: 140px;
+		background-color: green;
+	}
+	#box3{
+		z-index : 1;
+		top: 100px;
+		left: 90px;
+		background-color: blue;
+	}
+	
+</style>
+</head>
+<body>
+	<h3>z-index 속성 - 요소 쌓는 순서 정하기</h3>
+   	<!-- 
+      - z-index 값이 크면 값이 작은 요소보다 위에 쌓인다.
+      - z-index 값을 명시하지 않으면 1부터 시작해서 1씩 커진다.
+      - 항상 가장 위에 배치할 요소는 z-index:999;로 준다.
+    -->
+	
+	<div class="outline">
+		<h4 class="small_title">z-index 속성</h4>
+		<ul>
+			<li>z-index 값이 크면 값이 작은 요소보다 위에 쌓인다.</li>
+			<li>z-index 값을 명시하지 않으면 1부터 시작해서 1씩 커진다.</li>
+			<li>항상 가장 위에 배치할 요소는 z-index:999;로 준다.</li>
+		</ul>
+		<div id="wrap">
+			<div class="box" id="box1"> 박스 1 </div>
+			<div class="box" id="box2"> 박스 2 </div>
+			<div class="box" id="box3"> 박스 3 </div>
+		</div>
+	</div>	 
+</body>
+</html>
