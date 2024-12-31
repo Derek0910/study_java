@@ -1,0 +1,182 @@
+
+1. jsp_pj_ict04 플젝 생성 : new > Dynamic Web Project > Generate web.xml 체크
+
+2. jar 파일 추가 : WEB-INF/lib/5개 jar 파일 추가
+
+==== html_pj_ict04(화면설계 버전) => JSP MVC 패턴 개발 버전 ====
+
+3. 각각의 폴더, jsp 파일을 생성후 각각의  html 소스를 붙여넣는다.
+
+webapp(루트)
+/admin => 관리자
+/common => 공통
+/customer => 고객
+/resources > css, js, images => 폴더 복사해서 붙여넣기
+/templet
+
+
+4. 템플릿 > sample.html 소스의 헤더, 푸터를 잘라서 include(header.jsp, footer.jsp)
+ 
+/common > header.jsp
+/common > footer.jsp
+/common > setting.jsp => path 설정 => EL, JSTL 배운후
+
+5. /common > main.jsp
+  main.html 복사한후 헤더 푸터 include 
+  
+  실행 : http://localhost/jsp_pj_ict04/common/main.jsp
+   => 헤더 / 푸터 / 이미지 확인
+   main.jsp 복사해서 템플릿화 => sample.jsp로 붙여넣고, header, footer include시킨다. css 경로 수정
+
+==============================================================
+
+6. admin> csCenter > board_list.jsp
+- board_list.jsp에 ad_productList.html을 복사해서 붙여넣고
+- header, footer, leftMenu를 분리시킨후 include시킨다. 
+- setting.jsp 추가 css 경로 수정
+- header에 board_list.jsp 추가해서 test
+
+==============================================================
+
+[ BACKEND : 	]
+
+1. Controller - 패키지 : pj.mvc.jsp.controller
+                       - new Servlet >  CustomerController.java
+                       @WebServlet("*.bc")  <= 진입시 .bc인 요청만 받겠다는 의미, 반드시  do가 아니어도 됨.
+                       			customer : *.do   |     admin :  *.ad 
+
+2. Model(DTO + DAO)
+	DTO	 - pj.mvc.jsp.dto - BoardDTO.java
+				
+	DAO	 / DAOImpl -    패키지 : pj.mvc.jsp.dao
+						- BoardDAO.java : 인터페이스
+						- BoardDAOImpl.java : 인터페이스 구현
+
+3. Service / ServiceImpl -  패키지 : pj.mvc.jsp.service
+						- BoardService.java : 인터페이스
+						- BoardServiceImpl.java : 인터페이스 구현
+
+4. header.jsp	 => 컨트롤러에서 링크가 요청될 때 관리자 연결
+<li><a href="${path}/board_list.bc" style="color:black">관리자</a></li>
+
+5. leftMenu.jsp에서 게시글 목록 클릭시 화면이동
+
+
+=====================================
+
+6. 계정생성(System 계정에서) 1. ~ 2.
+-- 오라클 설치(SYSTEM/ORACLE) 
+-- SYSTEM계정에서 계정 생성
+-- hr : sql developer-system_01계정에서 계정생성안해도 되고, 3.락해제 5.비밀번호변경만 한다.
+
+-- 1. 계정생성 : jsp_pj_ict04 계정생성
+-- create user <계정이름> identified by <계정암호> default tablespace users;
+create user  jsp_pj_ict04 identified by tiger default tablespace users;
+
+-- 2. 사용자 권한 부여
+-- grant [시스템 권한] to [계정];
+grant connect, resource, create view to jsp_pj_ict04;
+
+//////////////////////////////////////////////////////
+--  권한취소
+-- revoke [시스템 권한] from [계정];
+-- revoke create view from jsp_pj_ict04;
+
+-- 3. 락 해제
+-- alter user <계정이름> account unlock;
+alter user hr account unlock;
+
+-- 4. 계정 잘못만든 경우 계정, 객체 삭제하기 
+-- drop user <계정이름> cascade;
+drop user jsp_pj_ict04 cascade; 
+
+-- 5. 패스워드 변경
+--alter user <계정이름> identified by <패스워드>;
+alter user jsp_pj_ict04 identified by tiger; 
+
+//////////////////////////////////////////////////////
+
+7. 테이블 생성
+-- jsp_pj_ict04 계정에서 작업
+-- 게시판  테이블
+DROP TABLE mvc_board_tbl  CASCADE CONSTRAINTS;
+CREATE TABLE mvc_board_tbl(  
+    num         NUMBER(7)  PRIMARY KEY,		-- 글번호
+	title       VARCHAR2(50)  NOT NULL,		-- 글제목
+	content     CLOB  NOT NULL,		        -- 글내용
+	writer      VARCHAR2(30)  NOT NULL,	    -- 작성자
+	password    VARCHAR2(30)  NOT NULL,     -- 수정, 삭제용 비밀번호
+	readCnt     NUMBER(6)   DEFAULT 0,		-- 조회수
+	regDate     DATE  DEFAULT sysdate,	    -- 작성일
+	comment_count  NUMBER(6)   DEFAULT 0	--  댓글갯수
+);
+SELECT * FROM mvc_board_tbl;
+
+-- 게시글 입력(다건)
+DECLARE -- 선언문
+    i   NUMBER:= 1; -- 변수 i에 1을 대입
+BEGIN
+    WHILE i<=991 LOOP
+        INSERT INTO mvc_board_tbl(b_num, b_title, b_content, b_writer, b_password, b_readCnt, b_regDate, b_comment_count)
+        VALUES(i, '글제목'||i, '글내용'||i, '작성자'||i, '1234', 0, sysdate, 0);
+        i := i+1;
+    END LOOP;
+END;
+/
+-- PL/SQL 프로시저가 성공적으로 완료되었습니다.
+COMMIT; -- 중요
+SELECT * FROM mvc_board_tbl
+   ORDER BY num;
+
+-- 1	글제목1	글내용1	작성자1	1234	0	24/07/01	0
+-- 2	글제목2	글내용2	작성자2	1234	0	24/07/01	0
+-- 991	글제목991	글내용991	작성자991	1234	0	24/07/01	0
+
+8. Servers > context.xml
+      <Resource
+    	author="Container"
+    	name="jdbc/jsp_pj_ict04"
+    	type="javax.sql.DataSource"
+    	driverClassName="oracle.jdbc.driver.OracleDriver"
+    	url = "jdbc:oracle:thin:@localhost:1521:xe"
+		username = "jsp_pj_ict04"
+		password = "tiger"
+		maxActive="7"
+		maxWait="1000"
+   />                                   
+                                        
+                                        
+9. 페이징처리
+서비스 - boardListAction
+===============
+pageNum : 1
+currentPage : 1
+BoardDAOImpl - boardCnt
+total : 991
+startRow : 1
+endRow : 10
+pageCount : 100
+startPage : 1
+endPage : 10
+prev : 0
+next : 11
+start : 1
+end : 10
+BoardDAOImpl - boardList
+
+10. 게시글목록
+-- 게시판 목록 조회
+SELECT *
+  FROM(
+    SELECT A.*,
+           rownum AS rn -- 일련번호
+    FROM 
+        (SELECT * FROM mvc_board_tbl 
+            ORDER BY num DESC -- 최신글 위로오게
+        ) A   
+  )
+WHERE rn BETWEEN 21 AND 30;
+
+11. -- 게시글 건수
+SELECT COUNT(*) AS cnt
+FROM mvc_board_tbl;
